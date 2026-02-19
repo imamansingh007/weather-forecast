@@ -1,0 +1,151 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.8s ease-in-out;
+}
+
+/* Background dark overlay for readability */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.app-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.search-container { display: flex; gap: 10px; margin-bottom: 30px; }
+.search-container input {
+    flex: 1; padding: 15px; border-radius: 15px; border: none;
+    background: rgba(255, 255, 255, 0.2); color: white; outline: none;
+}
+
+.dashboard { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: center; }
+.time-box h1 { font-size: 3.5rem; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+.center-panel #mainTemp { font-size: 5rem; font-weight: 800; }
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 20px; border-radius: 20px;
+    display: flex; align-items: center; gap: 15px; margin-bottom: 10px;
+}
+
+.forecast-cards { display: flex; gap: 10px; margin-top: 15px; overflow-x: auto; }
+.f-card {
+    background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 20px;
+    min-width: 90px; text-align: center;
+}
+/* Search Section Container */
+.search-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.search-icon {
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 12px;
+}
+
+#cityInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+#cityInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #38bdf8;
+    transform: translateY(-2px);
+}
+
+.mic-btn {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    border-radius: 50%; /* Circle mic button */
+}
+
+/* Pulse Animation for Mic when Recording */
+.recording {
+    background: #ef4444 !important; /* Red color when listening */
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.overlay {
+    /* ... aapka purana code ... */
+    transition: background 0.5s ease;
+}

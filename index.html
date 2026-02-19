@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast Pro | Dynamic Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="body-bg">
+    <div class="overlay"></div> <div class="app-wrapper">
+      <div class="search-section">
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="cityInput" placeholder="Search your city...">
+            <div class="button-group">
+                <button id="voiceBtn" class="action-btn mic-btn" title="Voice Search">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button id="searchBtn" class="action-btn" title="Search">
+                    GO
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="dashboard">
+            <div class="left-panel">
+                <div class="time-box">
+                    <h1 id="liveTime">00:00</h1>
+                    <p id="liveDate">Loading date...</p>
+                </div>
+                <div class="location-box">
+                    <h2 id="cityName"><i class="fa-solid fa-location-arrow"></i> --</h2>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <img src="" id="mainIcon" alt="">
+                <h1 id="mainTemp">--°C</h1>
+                <p id="weatherDesc">---</p>
+            </div>
+
+            <div class="right-panel">
+                <div class="stat-card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div><p>Humidity</p><span id="humidityValue">--%</span></div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-wind"></i>
+                    <div><p>Wind</p><span id="windValue">-- km/h</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="forecast-section">
+            <h3>Upcoming Days</h3>
+            <div class="forecast-cards" id="forecastCards"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
