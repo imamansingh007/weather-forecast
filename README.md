@@ -16,7 +16,7 @@ A responsive weather forecast application built using HTML, CSS, and JavaScript.
 - OpenWeather API
 
 ## Live Demo
-(Add your GitHub Pages link here)
+https://imamansingh007.github.io/weather-forecast/
 
 ## Author
 Aman Kumar
