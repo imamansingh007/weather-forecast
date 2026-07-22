@@ -5,27 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkyCast Pro | Dynamic Edition</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body id="body-bg">
-    <div class="overlay"></div> <div class="app-wrapper">
-      <div class="search-section">
-        <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="cityInput" placeholder="Search your city...">
-            <div class="button-group">
-                <button id="voiceBtn" class="action-btn mic-btn" title="Voice Search">
-                    <i class="fa-solid fa-microphone"></i>
-                </button>
-                <button id="searchBtn" class="action-btn" title="Search">
-                    GO
+    <div class="overlay"></div>
+
+    <!-- Animated weather layer: sun rays, rain, monsoon, snow, clouds, fog, lightning -->
+    <div class="weather-fx" id="weatherFx" aria-hidden="true"></div>
+
+    <div class="app-wrapper" id="appWrapper">
+
+        <div class="top-row">
+            <div class="search-section">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="cityInput" placeholder="Search your city...">
+                    <div class="button-group">
+                        <button id="locBtn" class="action-btn icon-only-btn" title="Use my location">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </button>
+                        <button id="voiceBtn" class="action-btn icon-only-btn mic-btn" title="Voice Search">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                        <button id="searchBtn" class="action-btn go-btn" title="Search">
+                            GO
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-group">
+                <button id="unitToggle" class="pill-btn" title="Toggle °C / °F">°C</button>
+                <button id="themeToggle" class="pill-btn icon-only-btn" title="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
         </div>
-    </div>
 
-        <div class="dashboard">
+        <div class="dashboard" id="dashboard">
             <div class="left-panel">
                 <div class="time-box">
                     <h1 id="liveTime">00:00</h1>
@@ -33,13 +51,17 @@
                 </div>
                 <div class="location-box">
                     <h2 id="cityName"><i class="fa-solid fa-location-arrow"></i> --</h2>
+                    <p id="sunTimes" class="sun-times"><i class="fa-solid fa-sun"></i> --:-- &nbsp; <i class="fa-solid fa-moon"></i> --:--</p>
                 </div>
             </div>
 
             <div class="center-panel">
-                <img src="" id="mainIcon" alt="">
-                <h1 id="mainTemp">--°C</h1>
+                <div class="icon-wrap">
+                    <img src="" id="mainIcon" alt="Weather icon">
+                </div>
+                <h1 id="mainTemp"><span id="tempValue">--</span><span class="deg">°<span id="unitLabel">C</span></span></h1>
                 <p id="weatherDesc">---</p>
+                <p id="feelsLike" class="feels-like">Feels like --°</p>
             </div>
 
             <div class="right-panel">
@@ -51,14 +73,31 @@
                     <i class="fa-solid fa-wind"></i>
                     <div><p>Wind</p><span id="windValue">-- km/h</span></div>
                 </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div><p>Pressure</p><span id="pressureValue">-- hPa</span></div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <div><p>Visibility</p><span id="visValue">-- km</span></div>
+                </div>
             </div>
         </div>
 
         <div class="forecast-section">
-            <h3>Upcoming Days</h3>
+            <h3><i class="fa-solid fa-calendar-days"></i> Upcoming Days</h3>
             <div class="forecast-cards" id="forecastCards"></div>
         </div>
     </div>
+
+    <!-- Loading overlay -->
+    <div class="loader" id="loader">
+        <div class="loader-ring"></div>
+        <p>Fetching skies...</p>
+    </div>
+
+    <!-- Toast notifications -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <script src="script.js"></script>
 </body>
